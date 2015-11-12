@@ -1,0 +1,45 @@
+<h1>Home Page</h1>
+<head>
+  <title>PB and JAM</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Mrs+Saint+Delafield|Droid+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <header><h1>PB and JAM</h1></header>
+
+  <h3>Create your profile to start jamming with other talented musicians!</h3>
+
+  <form action='/register' enctype="multipart/form-data" method='POST'>
+    <input name="file" type="file" />
+    <div>
+        <input type="text" name="user[username]" placeholder="Pick a user name!">
+    </div>
+    <div>
+        <input type ="text" name="user[first_name]" placeholder="First name">
+    </div>
+    <div>
+        <input type ="text" name="user[last_name]" placeholder="Last name">
+    </div>
+    <div>
+        <input type="text" name="user[email]" placeholder="Email address" value="">
+    </div>
+    <div>
+        <input type="password" name="user[password]" placeholder="Password">
+    </div>
+    <div>
+        <input type="text" name="user[instrument]" placeholder="What is your instrument of choice?" value="">
+    </div>
+    <div>
+        <input type="text" name="user[style]" placeholder="What is your genre of choice?" value="">
+    </div>
+    <div>
+      <textarea name="about" cols="50" rows="5" placeholder="Enter some cool information about yourself!"></textarea>
+    </div>
+    <div>
+        <input type="submit" value="Create Profile!">
+    </div>
+  </form>
+</body>
+

@@ -31,23 +31,6 @@ post '/posts' do
   end
 end
 
-get '/users/new' do
-  @user = User.new
-  erb :'users/new'
-end
-
-post '/users' do
-  @user = User.new(
-    email: params[:email],
-    password:  params[:password],
-  )
-  if @user.save
-    redirect '/posts'
-  else
-    erb :'users/new'
-  end
-end
-
 helpers do
   def current_user
     if session[:id] and user = User.find(session[:id])
@@ -77,7 +60,7 @@ post "/login" do
      redirect "/posts"
    else
      @error = "Wrong email/password"
-     redirect "/login"
+     redirect "/"
    end
 end
 
@@ -86,13 +69,20 @@ get "/logout" do
   redirect "/"
 end
 
-get '/upload' do
-    erb :upload
+get '/register' do
+  @user = User.new
+  erb :register
 end
 
-post '/upload' do
-    tempfile = params[:file][:tempfile] 
-    filename = params[:file][:filename] 
-    cp(tempfile.path, "public/uploads/#{filename}")
-    'Yeaaup'
+post '/register' do
+  @user = User.new(params[:user])
+  if @user.save
+    session[:id] = @user.id
+    tempfile = params[:file][:tempfile]
+    filename = params[:file][:filename]
+    cp(tempfile.path, "public/uploads/#{@user.id}")
+    redirect '/'
+  else
+    erb :'/register'
+  end
 end
