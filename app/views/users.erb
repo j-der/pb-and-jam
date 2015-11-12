@@ -1,0 +1,23 @@
+<h1>Search:</h1>
+<form method='get' action='/users' class="login_form">
+
+  <div>
+   <input type="text" name="instrument" placeholder="Instrument">
+  </div>
+  <div>
+   <input type="text" name="style" placeholder="Style">
+  </div> 
+   <div> 
+    <input class="btn btn-primary" type="submit" value="Search!">
+   </div>
+
+</form>
+
+<h1>Results</h1>
+<% if @users %>
+  <% @users.each do |user| %>
+    <p> here: <%= user.email %></p>
+  <% end %>
+<% else %>
+  <p>Enter a search term</p>
+<% end %>
