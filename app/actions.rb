@@ -91,3 +91,22 @@ post '/register' do
     erb :'/register'
   end
 end
+
+get '/users' do
+  # binding.pry
+  if params[:instrument].present? && params[:style].present?
+    @users = User.where(instrument: params[:instrument]).where(style: params[:style])
+  elsif params[:instrument].present?
+    @users = User.where(instrument: params[:instrument])
+  elsif params[:style].present?
+    @users = User.where(style: params[:style])
+  end
+  erb :'users'
+end
+
+
+
+
+
+
+
