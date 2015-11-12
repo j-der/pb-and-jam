@@ -1,3 +1,16 @@
+<h1>Search Results</h1>
+
+<h1>Results</h1>
+<% if @users %>
+  <% @users.each do |user| %>
+    <p> here: <%= user.email %></p>
+  <% end %>
+<% else %>
+  <p>Enter a search term</p>
+<% end %>
+
+
+
 <h1>Search:</h1>
 <form method='get' action='/results' class="login_form">
 
@@ -12,4 +25,3 @@
    </div>
 
 </form>
-
