@@ -64,6 +64,11 @@ post "/login" do
    end
 end
 
+get '/profile' do
+  @user = current_user
+  erb :'profile'
+end
+
 get "/logout" do
   session.clear
   redirect "/"
@@ -81,7 +86,7 @@ post '/register' do
     tempfile = params[:file][:tempfile]
     filename = params[:file][:filename]
     cp(tempfile.path, "public/uploads/#{@user.id}")
-    redirect '/'
+    redirect '/profile'
   else
     erb :'/register'
   end
