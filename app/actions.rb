@@ -92,6 +92,11 @@ post '/register' do
 end
 
 get '/users' do
+  @user = User.new
+  erb :"/users"
+end
+
+post '/users' do
   # binding.pry
   if params[:instrument].present? && params[:style].present?
     @users = User.where(instrument: params[:instrument]).where(style: params[:style])
@@ -100,10 +105,20 @@ get '/users' do
   elsif params[:style].present?
     @users = User.where(style: params[:style])
   end
-  erb :'users'
+  redirect "/results"
 end
 
-
+get '/results' do
+  # binding.pry
+  if params[:instrument].present? && params[:style].present?
+    @users = User.where(instrument: params[:instrument]).where(style: params[:style])
+  elsif params[:instrument].present?
+    @users = User.where(instrument: params[:instrument])
+  elsif params[:style].present?
+    @users = User.where(style: params[:style])
+  end
+  erb :'results'
+end
 
 
 

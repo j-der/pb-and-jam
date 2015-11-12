@@ -3,11 +3,11 @@
   <title>PB and JAM</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/stylesheets/application.css">
   <link href='https://fonts.googleapis.com/css?family=Mrs+Saint+Delafield|Droid+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <p><img src="/uploads/<%= @user.id %>"></p>
+  <p><img class="pic" src="/uploads/<%= @user.id %>"></p>
     <h1>Hello, <%= @user.username %>!</h1>
 
   <p>
