@@ -14,35 +14,39 @@ end
 #   erb :'posts/new'
 # end
 
-# get '/posts/:id' do
-#   @Post = Post.find params[:id]
-#   erb :'posts/show'
-# end
+get '/posts/:id' do
+  @Post = Post.find params[:id]
+  erb :'main'
+end
 
-# post '/posts' do
-#   @Post = Post.new(
-#     title: params[:title],
-#     author:  params[:author],
-#   )
-#   if @post.save
-#     redirect '/posts'
-#   else
-#     erb :'posts/new'
-#   end
-# end
+post '/posts' do
+  @post = Post.new(
+    content: params[:content],
+    username:  params[:username]
+  )
+  if @post.save
+    redirect '/main'
+  else
+    erb :'main'
+  end
+end
+
+get '/main' do
+  @posts = Post.all
+  erb :'main'
+end
 
 helpers do
   def current_user
-    if session[:id] and user = User.find(session[:id])
-      user
+    if session[:id] and @user = User.find(session[:id])
+      @user
     end
   end
 end
 
 get "/" do
    if @user = current_user
-     @posts = @user.posts
-     erb :posts
+     erb :main
    else
      erb :login
    end
@@ -54,9 +58,9 @@ end
 
 
 post "/login" do
-   if @user = User.find_by_username(params[:username]) 
+   if @user = User.find_by_username(params[:username])
      session[:id] = @user.id
-     redirect "/profile"
+     redirect "/main"
    else
      @error = "Wrong email/password"
      redirect "/"
@@ -91,33 +95,35 @@ post '/register' do
   end
 end
 
-get '/users' do
+get '/main' do
   @user = User.new
-  erb :"/users"
+  erb :"/main"
 end
 
-post '/users' do
+# post '/main' do
+#   # binding.pry
+#   if params[:instrument].present? && params[:style].present?
+#     @main = User.where(instrument: params[:instrument]).where(style: params[:style])
+#   elsif params[:instrument].present?
+#     @main = User.where(instrument: params[:instrument])
+#   elsif params[:style].present?
+#     @main = User.where(style: params[:style])
+#   end
+#   redirect '/users'
+# end
+
+get '/users' do
   # binding.pry
   if params[:instrument].present? && params[:style].present?
-    @users = User.where(instrument: params[:instrument]).where(style: params[:style])
+    @users = User.where(instrument: params[:instrument], style: params[:style])
   elsif params[:instrument].present?
     @users = User.where(instrument: params[:instrument])
   elsif params[:style].present?
     @users = User.where(style: params[:style])
+  else
+    @users = User.all
   end
-  redirect "/results"
-end
-
-get '/results' do
-  # binding.pry
-  if params[:instrument].present? && params[:style].present?
-    @users = User.where(instrument: params[:instrument]).where(style: params[:style])
-  elsif params[:instrument].present?
-    @users = User.where(instrument: params[:instrument])
-  elsif params[:style].present?
-    @users = User.where(style: params[:style])
-  end
-  erb :'results'
+  erb :'users'
 end
 
 get '/users/:id' do
