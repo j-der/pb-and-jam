@@ -100,26 +100,26 @@ get '/main' do
   erb :"/main"
 end
 
-post '/main' do
-  # binding.pry
-  if params[:instrument].present? && params[:style].present?
-    @main = User.where(instrument: params[:instrument]).where(style: params[:style])
-  elsif params[:instrument].present?
-    @main = User.where(instrument: params[:instrument])
-  elsif params[:style].present?
-    @main = User.where(style: params[:style])
-  end
-  redirect '/users'
-end
+# post '/main' do
+#   # binding.pry
+#   if params[:instrument].present? && params[:style].present?
+#     @main = User.where(instrument: params[:instrument]).where(style: params[:style])
+#   elsif params[:instrument].present?
+#     @main = User.where(instrument: params[:instrument])
+#   elsif params[:style].present?
+#     @main = User.where(style: params[:style])
+#   end
+#   redirect '/users'
+# end
 
 get '/users' do
   # binding.pry
   if params[:instrument].present? && params[:style].present?
-    @main = User.where(instrument: params[:instrument]).where(style: params[:style])
+    @users = User.where(instrument: params[:instrument], style: params[:style])
   elsif params[:instrument].present?
-    @main = User.where(instrument: params[:instrument])
+    @users = User.where(instrument: params[:instrument])
   elsif params[:style].present?
-    @main = User.where(style: params[:style])
+    @users = User.where(style: params[:style])
   else
     @users = User.all
   end
