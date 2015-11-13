@@ -3,7 +3,7 @@
 <h1>Results</h1>
 <% if @users %>
   <% @users.each do |user| %>
-    <p> here: <%= user.email %></p>
+    <p> <a href="/users/<%= user.id %>"> <%= user.username %></a></p>
   <% end %>
 <% else %>
   <p>Enter a search term</p>

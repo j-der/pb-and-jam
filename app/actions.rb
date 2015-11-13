@@ -4,32 +4,32 @@ get '/' do
   erb :index
 end
 
-get '/posts' do
-  @posts = Track.all
-  erb :'tracks/index'
-end
+# get '/posts' do
+#   @posts = Track.all
+#   erb :'tracks/index'
+# end
 
-get '/posts/new' do
-  @track = Post.new
-  erb :'posts/new'
-end
+# get '/posts/new' do
+#   @track = Post.new
+#   erb :'posts/new'
+# end
 
-get '/posts/:id' do
-  @Post = Post.find params[:id]
-  erb :'posts/show'
-end
+# get '/posts/:id' do
+#   @Post = Post.find params[:id]
+#   erb :'posts/show'
+# end
 
-post '/posts' do
-  @Post = Post.new(
-    title: params[:title],
-    author:  params[:author],
-  )
-  if @post.save
-    redirect '/posts'
-  else
-    erb :'posts/new'
-  end
-end
+# post '/posts' do
+#   @Post = Post.new(
+#     title: params[:title],
+#     author:  params[:author],
+#   )
+#   if @post.save
+#     redirect '/posts'
+#   else
+#     erb :'posts/new'
+#   end
+# end
 
 helpers do
   def current_user
@@ -54,7 +54,7 @@ end
 
 
 post "/login" do
-   if @user = User.find_by_username(params[:username]) #and @user.authenticate(params[:password])
+   if @user = User.find_by_username(params[:username]) 
      session[:id] = @user.id
      redirect "/profile"
    else
@@ -118,6 +118,11 @@ get '/results' do
     @users = User.where(style: params[:style])
   end
   erb :'results'
+end
+
+get '/users/:id' do
+  @user = User.find params[:id]
+  erb :'/show'
 end
 
 
