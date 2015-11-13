@@ -1,8 +1,35 @@
 include FileUtils::Verbose
 
-get '/' do
-  erb :index
+helpers do
+  def current_user
+    if session[:id] and @user = User.find(session[:id])
+      @user
+    end
+  end
 end
+
+
+get "/" do
+   if @user = current_user
+     redirect "/main"
+   else
+     erb :index
+   end
+end
+
+post "/" do
+   if @user = User.find_by_username(params[:username])
+     session[:id] = @user.id
+     redirect "/main"
+   else
+     @error = "Wrong email/password"
+     erb :index
+   end
+end
+
+# get '/' do
+#   erb :index
+# end
 
 # get '/posts' do
 #   @posts = Track.all
@@ -36,36 +63,16 @@ get '/main' do
   erb :'main'
 end
 
-helpers do
-  def current_user
-    if session[:id] and @user = User.find(session[:id])
-      @user
-    end
-  end
-end
-
-get "/" do
-   if @user = current_user
-     erb :main
-   else
-     erb :login
-   end
-end
-
-get '/login' do
-  erb :'login'
-end
 
 
-post "/login" do
-   if @user = User.find_by_username(params[:username])
-     session[:id] = @user.id
-     redirect "/main"
-   else
-     @error = "Wrong email/password"
-     redirect "/"
-   end
-end
+
+
+# get '/login' do
+#   erb :'login'
+# end
+
+
+
 
 get '/profile' do
   @user = current_user

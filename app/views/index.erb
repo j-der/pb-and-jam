@@ -1,5 +1,5 @@
 <h1>Log in!</h1>
-<form method='POST' action='/login' class="login_form">
+<form method='POST' action='/' class="login_form">
 <div>
   <input type="text" name="username" placeholder="Username">
   </div>
@@ -12,3 +12,8 @@
 </form>
 
 <p>If you don't have an account click <a href="/register">here</a> to make one!</p>
+
+<p><% if @error %>
+<%= @error %>
+<% end %>
+</p>
