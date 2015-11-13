@@ -1,0 +1,36 @@
+<h1>Search:</h1>
+<form method='get' action='/users' class="login_form">
+
+  <div>
+   <input type="text" name="instrument" placeholder="Instrument">
+  </div>
+  <div>
+   <input type="text" name="style" placeholder="Style">
+  </div>
+  <div>
+   <input class="btn btn-primary" type="submit" value="Search!">
+  </div>
+</form>
+
+<h3>Post a message</h3>
+
+<form method='post' action='/posts' class='posts'>
+  <div>
+   <input type="text" name="username" placeholder="Your username">
+  </div>
+  <div>
+   <input type="text" name="content" placeholder="Your message">
+  </div>
+    <div>
+   <input class="btn btn-primary" type="submit" value="Post!">
+  </div>
+</form>
+
+<h3>Message board</h3>
+<% @posts.each do |post| %>
+  <div class="post">
+    <p><%= post.content %></p>
+    <p>By: <%= post.username %>, on <%= post.created_at %></p>
+  </div>
+<% end %>
+
