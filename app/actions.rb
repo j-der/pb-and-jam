@@ -54,7 +54,6 @@ end
 
 
 post "/login" do
-   #binding.pry
    if @user = User.find_by_username(params[:username]) #and @user.authenticate(params[:password])
      session[:id] = @user.id
      redirect "/profile"
