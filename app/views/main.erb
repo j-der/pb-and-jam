@@ -16,9 +16,6 @@
 
 <form method='post' action='/posts' class='posts'>
   <div>
-   <input type="text" name="username" placeholder="Your username">
-  </div>
-  <div>
    <input type="text" name="content" placeholder="Your message">
   </div>
     <div>
@@ -30,7 +27,7 @@
 <% @posts.each do |post| %>
   <div class="post">
     <p><%= post.content %></p>
-    <p>By: <%= post.username %>, on <%= post.created_at %></p>
+    <p> By: <a href="/users/<%= post.user_id %>"><%= post.username %></a> on <%= post.created_at %></p>
   </div>
 <% end %>
 

@@ -8,7 +8,6 @@ helpers do
   end
 end
 
-
 get "/" do
    if @user = current_user
      redirect "/main"
@@ -27,20 +26,6 @@ post "/" do
    end
 end
 
-# get '/' do
-#   erb :index
-# end
-
-# get '/posts' do
-#   @posts = Track.all
-#   erb :'tracks/index'
-# end
-
-# get '/posts/new' do
-#   @track = Post.new
-#   erb :'posts/new'
-# end
-
 get '/posts/:id' do
   @Post = Post.find params[:id]
   erb :'main'
@@ -49,8 +34,9 @@ end
 post '/posts' do
   @post = Post.new(
     content: params[:content],
-    username:  params[:username]
-  )
+    username:  current_user.username
+    )
+    @post.user_id = current_user.id
   if @post.save
     redirect '/main'
   else
@@ -62,16 +48,6 @@ get '/main' do
   @posts = Post.all
   erb :'main'
 end
-
-
-
-
-
-# get '/login' do
-#   erb :'login'
-# end
-
-
 
 
 get '/profile' do
@@ -107,20 +83,7 @@ get '/main' do
   erb :"/main"
 end
 
-# post '/main' do
-#   # binding.pry
-#   if params[:instrument].present? && params[:style].present?
-#     @main = User.where(instrument: params[:instrument]).where(style: params[:style])
-#   elsif params[:instrument].present?
-#     @main = User.where(instrument: params[:instrument])
-#   elsif params[:style].present?
-#     @main = User.where(style: params[:style])
-#   end
-#   redirect '/users'
-# end
-
 get '/users' do
-  # binding.pry
   if params[:instrument].present? && params[:style].present?
     @users = User.where(instrument: params[:instrument], style: params[:style])
   elsif params[:instrument].present?
