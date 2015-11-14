@@ -1,14 +1,42 @@
-<h1>Log in!</h1>
-<form method='POST' action='/login' class="login_form">
-<div>
-  <input type="text" name="username" placeholder="Username">
-  </div>
-  <div>
-   <input type="password" name="password" placeholder="Password">
-  </div>
-   <div>
-   <input class="btn btn-primary" type="submit" value="Login!">
-  </div>
-</form>
+<body class="main">
+<h1 class="title">PB &amp; JAM</h1>
 
-<p>If you don't have an account click <a href="/register">here</a> to make one!</p>
+<div id="form-main">
+  <div id="form-div">
+    <form method='post' action='/login' class="login_form" id="form1">
+
+      <p class="username">
+        <input name="username" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Username" id="name" />
+      </p>
+      <p class="password">
+        <input name="password" type="password" class="validate[required,custom[email]] feedback-input" id="password" placeholder="Email" />
+      </p>
+      <div class="submit">
+        <input type="submit" value="SEND" id="button-blue"/>
+        <div class="ease"></div>
+      </div>
+    </form>
+  </div>
+  <!--
+<div class="main">
+  <form method='POST' action='/login' class="login_form">
+  <div>
+    <input type="text" name="username" placeholder="Username">
+    </div>
+    <div>
+     <input type="password" name="password" placeholder="Password">
+    </div>
+     <div>
+     <input class="btn btn-primary" type="submit" value="Login!">
+    </div>
+  </form>
+ -->
+  <p class="main">If you don't have an account click <a href="/register">here</a> to make one!</p>
+
+<!-- </div> -->
+
+
+
+
+</div>
+</body>

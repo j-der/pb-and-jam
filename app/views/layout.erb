@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head >
   <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Slabo+27px' rel='stylesheet' type='text/css'>
+
   <link rel="stylesheet" href="/stylesheets/normalize.css">
   <!--
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/stylesheets/application.css">
+  <!-- <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/javascript/application.js"></script>
-
+ -->
   <title></title>
 </head>
 <body>
   <%= yield %>
+<!--
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>'</script>
+
+  <script src="/js/bootstrap.min.js"></script>
+ -->
 </body>
 </html>
