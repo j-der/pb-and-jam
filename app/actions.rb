@@ -9,9 +9,6 @@ helpers do
   end
 end
 
-get '/foo' do
-  "Hello"
-end
 
 get "/" do
    if @user = current_user
@@ -60,6 +57,21 @@ get '/profile' do
   @user = current_user
   erb :'profile'
 end
+
+get '/edit' do
+
+  @user = current_user
+  erb :'edit'
+end
+
+post '/edit' do
+  current_user.update(params[:user])
+  current_user.username.upcase!
+  current_user.save
+  redirect '/profile'
+end
+
+
 
 get "/logout" do
   session.clear
