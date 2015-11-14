@@ -59,18 +59,29 @@ get '/profile' do
   erb :'profile'
 end
 
-get '/edit' do
+# get '/edit' do
 
-  @user = current_user
-  erb :'edit'
-end
+#   @user = current_user
+#   erb :'edit'
+# end
 
-post '/edit' do
-  current_user.update(params[:user])
-  current_user.username.upcase!
-  current_user.save
-  redirect '/profile'
-end
+# post '/edit' do
+#   binding.pry
+#   params[:user].each do |field|
+#     if field.present?
+#        current_user.update(params[:user][field])
+#     end
+#   end
+
+
+#   # [:username].present?
+#   # current_user.update(params[:user][:username])
+#   # current_user.username.upcase!
+#   # else
+
+#   current_user.save
+#   redirect '/profile'
+# end
 
 
 
