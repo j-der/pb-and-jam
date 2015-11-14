@@ -1,3 +1,5 @@
+<!-- <div class="background-image"></div> -->
+
 <body class="main">
 <h1 class="title">PB &amp; JAM</h1>
 
@@ -6,24 +8,26 @@
     <form method='post' action='/' class="login_form" id="form1">
 
       <p class="username">
-        <input name="username" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Username" id="name" />
+        <input name="username" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="USERNAME" id="name" />
       </p>
       <p class="password">
-        <input name="password" type="password" class="validate[required,custom[email]] feedback-input" id="password" placeholder="Password" />
+        <input name="password" type="password" class="validate[required,custom[email]] feedback-input" id="password" placeholder="PASSWORD" />
       </p>
-      <div class="Log in!">
-        <input type="submit" value="SEND" id="button-blue"/>
+      <div class="submit">
+        <input type="submit" value="LOG IN!" id="button-blue"/>
         <div class="ease"></div>
       </div>
     </form>
   </div>
-
-  <p class="main">If you don't have an account click <a href="/register">here</a> to make one!</p>
+</div>
+  <p class="main">If you don't have an account <a href="/register">click here</a> to make one!</p>
   <p><% if @error %>
     <%= @error %>
       <% end %>
   </p>
 <!-- </div> -->
 
-</div>
+
+
 </body>
+

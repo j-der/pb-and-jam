@@ -1,7 +1,12 @@
+body.main {
+  background: url('../img/DSC0498_edit.jpg') no-repeat;
+}
+
 .pic {
   height: 50px;
   width: 50px;
 }
+
 h1 {
   margin: 0.67em 0;
   margin-top: 15px;
@@ -9,20 +14,31 @@ h1 {
 }
 h1.title {
   font-family: 'Slabo 27px', serif;
-  font-size: 8em;
+  font-size: 8.9em;
   font-weight: bold;
-  color: #e29b15;
+  color: #d01415;
   padding: 5px;
   text-align: center;
+  box-shadow: 4px
+  text-shadow: 1px 1px 1px;
 }
 
+p.main {
+  font-family: 'Slabo 27px', serif;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #d01415;
+  text-align: center
+
+}
+a:link {
+  color: #white;
+}
+a:visited {
+  color: #white;
+}
 
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-
-html{    background:url(http://www.densesignals.com/wp-content/uploads/2014/01/DSC0498.jpg) no-repeat;
-  background-size: cover;
-  height:100%;
-}
 
 #feedback-page{
   text-align:center;
@@ -35,7 +51,7 @@ html{    background:url(http://www.densesignals.com/wp-content/uploads/2014/01/D
 }
 
 #form-div {
-  background-color:rgba(72,72,72,0.4);
+  background-color:rgba(51, 6, 37, 0.56);
   padding-left:35px;
   padding-right:35px;
   padding-top:35px;
@@ -44,7 +60,7 @@ html{    background:url(http://www.densesignals.com/wp-content/uploads/2014/01/D
   float: left;
   left: 50%;
   position: absolute;
-  margin-top:30px;
+  margin-top:50px;
   margin-left: -260px;
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
@@ -137,7 +153,7 @@ input:focus, textarea:focus {
   width: 100%;
   border: #fbfbfb solid 4px;
   cursor:pointer;
-  background-color: #3498db;
+  background-color: rgba(20, 4, 40, 0.57);
   color:white;
   font-size:24px;
   padding-top:22px;
@@ -151,7 +167,7 @@ input:focus, textarea:focus {
 
 #button-blue:hover{
   background-color: rgba(0,0,0,0);
-  color: #0493bd;
+  color: #d01415;
 }
 
 .submit:hover {
