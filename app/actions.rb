@@ -1,18 +1,30 @@
 include FileUtils::Verbose
 
-get '/' do
-  erb :index
+helpers do
+  def current_user
+    if session[:id] and @user = User.find(session[:id])
+      @user
+    end
+  end
 end
 
-# get '/posts' do
-#   @posts = Track.all
-#   erb :'tracks/index'
-# end
+get "/" do
+   if @user = current_user
+     redirect "/main"
+   else
+     erb :index
+   end
+end
 
-# get '/posts/new' do
-#   @track = Post.new
-#   erb :'posts/new'
-# end
+post "/" do
+   if @user = User.find_by_username(params[:username])
+     session[:id] = @user.id
+     redirect "/main"
+   else
+     @error = "Wrong email/password"
+     erb :index
+   end
+end
 
 get '/posts/:id' do
   @Post = Post.find params[:id]
@@ -22,8 +34,9 @@ end
 post '/posts' do
   @post = Post.new(
     content: params[:content],
-    username:  params[:username]
-  )
+    username:  current_user.username
+    )
+    @post.user_id = current_user.id
   if @post.save
     redirect '/main'
   else
@@ -36,36 +49,6 @@ get '/main' do
   erb :'main'
 end
 
-helpers do
-  def current_user
-    if session[:id] and @user = User.find(session[:id])
-      @user
-    end
-  end
-end
-
-get "/" do
-   if @user = current_user
-     erb :main
-   else
-     erb :login
-   end
-end
-
-get '/login' do
-  erb :'login'
-end
-
-
-post "/login" do
-   if @user = User.find_by_username(params[:username])
-     session[:id] = @user.id
-     redirect "/main"
-   else
-     @error = "Wrong email/password"
-     redirect "/"
-   end
-end
 
 get '/profile' do
   @user = current_user
@@ -100,20 +83,7 @@ get '/main' do
   erb :"/main"
 end
 
-# post '/main' do
-#   # binding.pry
-#   if params[:instrument].present? && params[:style].present?
-#     @main = User.where(instrument: params[:instrument]).where(style: params[:style])
-#   elsif params[:instrument].present?
-#     @main = User.where(instrument: params[:instrument])
-#   elsif params[:style].present?
-#     @main = User.where(style: params[:style])
-#   end
-#   redirect '/users'
-# end
-
 get '/users' do
-  # binding.pry
   if params[:instrument].present? && params[:style].present?
     @users = User.where(instrument: params[:instrument], style: params[:style])
   elsif params[:instrument].present?
