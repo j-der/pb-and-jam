@@ -44,6 +44,7 @@ GEM
       rack (>= 1.0)
       rack-test (~> 0.6.2)
       ripl (>= 0.7.0)
+    route_downcaser (1.1.4)
     shotgun (0.9.1)
       rack (>= 1.0)
     sinatra (1.4.6)
@@ -81,9 +82,13 @@ DEPENDENCIES
   pry
   puma
   rake
+  route_downcaser
   shotgun
   sinatra
   sinatra-activerecord
   sinatra-contrib
   sqlite3
   tux
+
+BUNDLED WITH
+   1.10.6

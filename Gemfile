@@ -3,7 +3,7 @@ source "https://rubygems.org"
 
 gem 'rake'
 gem 'activesupport'
-
+gem 'route_downcaser'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-activerecord'

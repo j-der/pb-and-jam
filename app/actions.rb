@@ -1,4 +1,5 @@
 include FileUtils::Verbose
+use RouteDowncaser::DowncaseRouteMiddleware
 
 helpers do
   def current_user
@@ -6,6 +7,10 @@ helpers do
       @user
     end
   end
+end
+
+get '/foo' do
+  "Hello"
 end
 
 get "/" do
@@ -17,7 +22,7 @@ get "/" do
 end
 
 post "/" do
-   if @user = User.find_by_username(params[:username]) and @user.authenticate(params[:password])
+   if @user = User.find_by_username(params[:username].upcase) and @user.authenticate(params[:password])
      session[:id] = @user.id
      redirect "/main"
    else
@@ -49,10 +54,6 @@ get '/main' do
   erb :'main'
 end
 
-# get '/main' do
-#   @user = User.new
-#   erb :"/main"
-# end
 
 
 get '/profile' do
@@ -72,12 +73,17 @@ end
 
 post '/register' do
   @user = User.new(params[:user])
+     @user.username.upcase!
   if @user.save
     session[:id] = @user.id
-    tempfile = params[:file][:tempfile]
-    filename = params[:file][:filename]
-    cp(tempfile.path, "public/uploads/#{@user.id}")
-    redirect '/profile'
+    if params[:file].present?
+      tempfile = params[:file][:tempfile]
+      filename = params[:file][:filename]
+      cp(tempfile.path, "public/uploads/#{@user.id}")
+      redirect '/profile'
+    else
+      redirect '/profile'
+    end
   else
     erb :'/register'
   end
@@ -87,11 +93,11 @@ end
 
 get '/users' do
   if params[:instrument].present? && params[:style].present?
-    @users = User.where(instrument: params[:instrument], style: params[:style])
+    @users = User.where(instrument: params[:instrument].downcase, style: params[:style].downcase)
   elsif params[:instrument].present?
-    @users = User.where(instrument: params[:instrument])
+    @users = User.where(instrument: params[:instrument].downcase)
   elsif params[:style].present?
-    @users = User.where(style: params[:style])
+    @users = User.where(style: params[:style].downcase)
   else
     @users = User.all
   end
