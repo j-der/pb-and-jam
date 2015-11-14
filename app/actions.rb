@@ -45,6 +45,7 @@ post '/posts' do
 end
 
 get '/main' do
+  @user = current_user
   @posts = Post.all
   erb :'main'
 end
