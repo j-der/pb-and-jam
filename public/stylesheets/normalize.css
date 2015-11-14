@@ -6,17 +6,18 @@
  *    user zoom.
  */
 
-html {
+/*html {
   font-family: sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
-}
+}*/
 
 /**
  * Remove default margin.
  */
 
-body {
+body.main {
+  background-image:url(http://www.densesignals.com/wp-content/uploads/2014/01/DSC0498.jpg) no-repeat;
   margin: 0;
 }
 
