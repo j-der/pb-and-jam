@@ -1081,7 +1081,7 @@ html {
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-body {
+/*body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
@@ -1109,7 +1109,7 @@ a:focus {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
-}
+}*/
 figure {
   margin: 0;
 }
@@ -3121,7 +3121,7 @@ fieldset[disabled] .btn-default.active {
   color: #fff;
   background-color: #333;
 }
-.btn-primary {
+/*.btn-primary {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
@@ -3186,7 +3186,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-primary .badge {
   color: #337ab7;
   background-color: #fff;
-}
+}*/
 .btn-success {
   color: #fff;
   background-color: #5cb85c;
