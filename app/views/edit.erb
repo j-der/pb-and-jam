@@ -1,0 +1,32 @@
+<body>
+  <header><h3 class="jumbotron">PB and JAM</h3></header>
+
+  <h3>Update your profile</h3>
+
+  <form action='/edit' enctype="multipart/form-data" method='POST'>
+    <div>
+        <input type="text" name="user[username]" placeholder="<%= current_user.username %>">
+    </div>
+    <div>
+        <input type ="text" name="user[first_name]" placeholder="<%= current_user.first_name %>">
+    </div>
+    <div>
+        <input type ="text" name="user[last_name]" placeholder="<%= current_user.last_name %>">
+    </div>
+    <div>
+        <input type="text" name="user[email]" placeholder="<%= current_user.email %>" value="">
+    </div>
+    <div>
+        <input type="text" name="user[instrument]" placeholder="<%= current_user.instrument %>" value="">
+    </div>
+    <div>
+        <input type="text" name="user[style]" placeholder="<%= current_user.style %>" value="">
+    </div>
+    <div>
+      <textarea name="about" cols="50" rows="5" placeholder="<%= current_user.about %>"></textarea>
+    </div>
+    <div>
+        <input type="submit" value="Update!">
+    </div>
+  </form>
+</body>
