@@ -17,7 +17,7 @@ get "/" do
 end
 
 post "/" do
-   if @user = User.find_by_username(params[:username])
+   if @user = User.find_by_username(params[:username]) and @user.authenticate(params[:password])
      session[:id] = @user.id
      redirect "/main"
    else
@@ -49,6 +49,11 @@ get '/main' do
   erb :'main'
 end
 
+# get '/main' do
+#   @user = User.new
+#   erb :"/main"
+# end
+
 
 get '/profile' do
   @user = current_user
@@ -78,10 +83,7 @@ post '/register' do
   end
 end
 
-get '/main' do
-  @user = User.new
-  erb :"/main"
-end
+
 
 get '/users' do
   if params[:instrument].present? && params[:style].present?
