@@ -1,31 +1,32 @@
 <!-- <div class="background-image"></div> -->
+<div class="main-background">
+  <body class="main">
+  <h1 class="title">PB &amp;<span class="jam"> JAM</span></h1>
 
-<body class="main">
-<h1 class="title">PB &amp;<span class="jam"> JAM</span></h1>
+  <div id="form-main">
+    <div id="form-div">
+      <form method='post' action='/' class="login_form" id="form1">
 
-<div id="form-main">
-  <div id="form-div">
-    <form method='post' action='/' class="login_form" id="form1">
-
-      <p class="username">
-        <input name="username" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="USERNAME" id="name" />
-      </p>
-      <p class="password">
-        <input name="password" type="password" class="validate[required,custom[email]] feedback-input" id="password" placeholder="PASSWORD" />
-      </p>
-      <div class="submit">
-        <input type="submit" value="LOG IN!" id="button-blue"/>
-        <div class="ease"></div>
-         <p class="main"><a href="/register">create an account</a></p>
-      </div>
-    </form>
+        <p class="username">
+          <input name="username" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="USERNAME" id="name" />
+        </p>
+        <p class="password">
+          <input name="password" type="password" class="validate[required,custom[email]] feedback-input" id="password" placeholder="PASSWORD" />
+        </p>
+        <div class="submit">
+          <input type="submit" value="LOG IN!" id="button-blue"/>
+          <div class="ease"></div>
+           <p class="main"><a href="/register">create an account</a></p>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
- 
-  <p class="error_message"><% if @error %>
-    <%= @error %>
-      <% end %>
-  </p>
+   
+    <p class="error_message"><% if @error %>
+      <%= @error %>
+        <% end %>
+    </p>
 <!-- </div> -->
 
 

@@ -629,7 +629,7 @@ a:focus {
 
 
 h3 {
-  font-size: 25px;
+  font-size: 35px;
   font-weight: bold;
   text-align: center;
   font-family: 'Slabo 27px', serif;
@@ -761,6 +761,30 @@ a:link {
 }
 a:visited {
   color: #d01415;
+}
+
+
+.results-title {
+  font-size: 55px;
+  font-weight: bold;
+}
+
+/*users page*/
+
+.search-results {
+  text-align: center;
+}
+
+.results-list {
+  font-size: 25px;
+}
+
+.content {
+  font-size: 23px;
+}
+
+.content-user {
+  font-size: 17px;
 }
 
 
