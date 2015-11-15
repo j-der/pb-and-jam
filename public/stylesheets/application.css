@@ -1,5 +1,17 @@
-body.main {
-  background: url('../img/DSC0498_edit.jpg') no-repeat;
+body.main::after {
+/*  background: url('../img/DSC0498.jpg') no-repeat;
+  background-size: cover;
+  opacity: 0.1;*/
+  /*background-image: '../img/DSC0498.jpg'*/
+    content: "";
+  background: url('../img/DSC0498.jpg') no-repeat;
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
 }
 
 .pic {
@@ -9,19 +21,23 @@ body.main {
 
 h1 {
   margin: 0.67em 0;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 70px;
+  background-color: black;
+
+ 
+
 }
 h1.title {
   font-family: 'Slabo 27px', serif;
-  font-size: 8.9em;
-  font-weight: bold;
-  color: #d01415;
-  padding: 5px;
-  text-align: center;
-  box-shadow: 4px
-  text-shadow: 1px 1px 1px;
+  font-size: 3em;
+  /*font-weight: bold;*/
+  color: #C47918;
+  /*padding-left: 10px;*/
+  text-align: left;
+  opacity: 0.7;
 }
+
 
 p.main {
   font-family: 'Slabo 27px', serif;
@@ -63,7 +79,7 @@ a:visited {
   padding-left:35px;
   padding-right:35px;
   padding-top:35px;
-  padding-bottom:50px;
+  padding-bottom:10px;
   width: 450px;
   float: left;
   left: 50%;
@@ -107,6 +123,10 @@ a:visited {
 }
 
 /* Icons ---------------------------------- */
+
+#jam {
+  color: purple;
+}
 #name{
   background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
   background-size: 30px 30px;
