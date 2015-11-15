@@ -1,39 +1,33 @@
-<h1>Home Page</h1>
+<h1 class="title">PB &amp;<span id="jam"> JAM</span></h1>
 <head>
-  <title>PB and JAM</title>
+  <title>PB &amp; JAM</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="/stylesheets/application.css">
   <link href='https://fonts.googleapis.com/css?family=Mrs+Saint+Delafield|Droid+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <p><img class="pic" src="../uploads/<%= @user.id %>"></p>
-    <h1>Hello, <%= @user.username %>!</h1>
+  <div class="sidebar">
+  </div>
 
-  <p>
-    Your name is <%= @user.first_name %> <%= @user.last_name %>
-  </p>
-  <p>
-  Instrument of choice: <br/>
-  <%= @user.instrument %>
-  </p>
-  <p>
-  Musical style: <br/>
-  <%= @user.style %>
-  </p>
-  <p>
-  my email: <br/>
-  <p> <a href="mailto:<%= current_user.email %>">Email Me </a></p>
-  </p>
-  <p>
+  <div class="sidebar_info">
+    <div class="profile_pic"><img class="profile_pic" src="../uploads/<%= @user.id %>"></p></div>
+      <ul class="sidebar_text">
+        <li><span class="accent_color">NAME:</span> <%= @user.first_name %> <%= @user.last_name %></li><br/>
+        <li><span class="accent_color">INSTRUMENT:</span> <%= @user.instrument %></li><br/>
+        <li><span class="accent_color">STYLE:</span> <%= @user.style %></li><br/>
+        <li><a href="mailto:<%= current_user.email %>">EMAIL ME</a></li><br/>
+        </ul>
+  </div>
+</body>
+<h2>HELLO, <%= @user.username %>!</h2>
+  <div class="about">
+  <p class="main">
   About: <br/>
   <%= @user.about %>
   </p>
-  <form method='get' action='/logout'>
-    <div>
-      <input type="submit" value="Log out">
-    </div>
-  </form>
+  </div>
+
 
 <!--   <form method='GET' action='/edit'>
     <div>
