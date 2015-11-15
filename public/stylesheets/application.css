@@ -29,7 +29,7 @@ h1 {
  
 
 }
-h1.title {
+.title {
   font-family: 'Slabo 27px', serif;
   font-size: 5em;
   /*font-weight: bold;*/
@@ -125,8 +125,9 @@ a:visited {
 
 /* Icons ---------------------------------- */
 
-#jam {
+.jam {
   color: #D981CD;
+  font-family: 'Slabo 27px', serif;
 }
 #name{
   background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
@@ -231,8 +232,12 @@ input:focus, textarea:focus {
 }
 
 
+/*navbar*/
+
+
 .header {
-  padding: 5px;
+  padding-top: 5px;
+  height: 175px;
 }
 
 .right-nav a {
@@ -250,12 +255,16 @@ input:focus, textarea:focus {
   text-decoration: none;
 }
 
+.logo a:hover {
+  text-decoration: none;
+}
+
 .nav {
     list-style: none;
 }
 
 
-.logo h1 {
+.logo p {
   font-size: 100px;
 }
 
@@ -294,6 +303,12 @@ input:focus, textarea:focus {
     flex-grow: 1;
     /*transition: .5s;*/
     }
+
+    .nav-title {
+      color: rgb(255, 93, 31);
+      font-size: 100px;
+      font-family: 'Slabo 27px', serif;
+    }
 /*    .nav li:hover {
       -webkit-flex-grow: 2;
       flex-grow: 2;
@@ -306,7 +321,7 @@ input:focus, textarea:focus {
   }*/
 
   .logout {
-    margin-top: 45px;
+    margin-top: 35px;
   }
 
   .nav-pic {
@@ -314,9 +329,9 @@ input:focus, textarea:focus {
     height: 75px;
   }
 
-
   .header       { background-color: #384047; }
-.logout a        { background-color: #FF4F50; }
+
+/**/.logout a        { background-color: rgb(255, 93, 31); }
 /*.logo a       { background-color: #FF4F50; }*/
 
 
@@ -422,3 +437,169 @@ a:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
+
+
+/*main-search*/
+
+.feedback-input-search {
+  color:#3c3c3c;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 0;
+  line-height: 22px;
+  background-color: #fbfbfb;
+  padding: 13px 13px 13px 54px;
+  margin-bottom: 10px;
+  width:100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 3px solid rgba(0,0,0,0);
+}
+
+
+.feedback-input-search:focus{
+  background: #fff;
+  box-shadow: 0;
+  border: 3px solid #3498db;
+  color: #3498db;
+  outline: none;
+  padding: 13px 13px 13px 54px;
+}
+
+
+#button-blue-search{
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  /*float: ;*/
+  width: 40%;
+  border: #fbfbfb solid 4px;
+  cursor:pointer;
+  background-color: rgba(20, 4, 40, 0.57);
+  color:white;
+  font-size:24px;
+  padding-top:22px;
+  padding-bottom:22px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  /*margin-top:-4px;*/
+  font-weight:700;
+}
+
+.search-button {
+    text-align: center;
+  margin: auto;
+}
+
+#button-blue-search:hover{
+  background-color: rgba(0,0,0,0);
+  color: #d01415;
+}
+
+.submit-search:hover {
+  color: #3498db;
+}
+
+.submit-search {
+  font-family: 'Slabo 27px', serif;
+}
+
+.instrument {
+  float: left;
+  position:relative;
+  width: 35%;
+  height: auto;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.style {
+  float: right;
+  position: relative;
+  width: 35%;
+  height: auto;
+  margin-right: 10%;
+}
+
+
+.main-title {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/*news feed*/
+
+#button-blue-post{
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  /*float: ;*/
+  width: 40%;
+  border: #fbfbfb solid 4px;
+  cursor:pointer;
+  background-color: rgba(20, 4, 40, 0.57);
+  color:white;
+  font-size:24px;
+  padding-top:22px;
+  padding-bottom:22px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  /*margin-top:-4px;*/
+  font-weight:700;
+}
+
+#button-blue-post:hover{
+  background-color: rgba(0,0,0,0);
+  color: #d01415;
+}
+
+
+.post-button {
+  text-align: center;
+  margin: auto;
+}
+
+
+h3 {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Slabo 27px', serif;
+}
+
+.message-input {
+  margin-left: 17.5%;
+  margin-right: 17.5%;
+}
+
+.post {
+  font-size: 16px;
+  text-align: center;
+}
+
+.main-background {
+  background-color: #FFD0FE;
+}
+
+p {
+  font-family: 'Slabo 27px', serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
