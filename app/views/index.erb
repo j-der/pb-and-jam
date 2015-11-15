@@ -1,7 +1,7 @@
 <!-- <div class="background-image"></div> -->
 
 <body class="main">
-<h1 class="title">PB &amp; JAM</h1>
+<h1 class="title">PB &amp;<span id="jam"> JAM</span></h1>
 
 <div id="form-main">
   <div id="form-div">
@@ -16,11 +16,12 @@
       <div class="submit">
         <input type="submit" value="LOG IN!" id="button-blue"/>
         <div class="ease"></div>
+         <p class="main"><a href="/register">create an account</a></p>
       </div>
     </form>
   </div>
 </div>
-  <p class="main">If you don't have an account <a href="/register">click here</a> to make one!</p>
+ 
   <p class="error_message"><% if @error %>
     <%= @error %>
       <% end %>
