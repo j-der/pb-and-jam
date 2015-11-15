@@ -1,17 +1,54 @@
-<h1>Search Results</h1>
+<div class="main-background">    
 
-<h1>Results</h1>
-<% if @users %>
-  <% @users.each do |user| %>
-    <p> <a href="/users/<%= user.id %>"> <%= user.username %></a></p>
-  <% end %>
-<% else %>
-  <p>Enter a search term</p>
-<% end %>
+    <div>
+      <header class="header">
+        <ul class="nav">
+          <li class="logo"><p><a href="/main"><span class="nav-title">PB &</span><span class="jam"> JAM</span></a></p></li>
+          <div class="right-nav">
+            <li><a href="/profile" data-icon="&#xe603;"><img class="nav-pic" src="../uploads/<%= @user.id %>"></a></li>
+            <li class="logout"><a href="/logout" data-icon="&#xe603;">logout</a></li>
+          </div>
+        </ul>
+      </header>
+    
+
+    <p class="main-title">Start Your Jam Session!</p>
+    <form method='get' action='/users'>
+
+    <div class="search-bars">
+        <div class="instrument">
+         <input type="text" name="instrument" class="feedback-input-search" placeholder="Instrument">
+        </div>
+        <div class="style">
+         <input type="text" name="style" class="feedback-input-search" placeholder="Style">
+        </div>
+    </div>
+      <div class="search-button">
+       <input class="submit-search" type="submit" value="Search!" id="button-blue-search">
+    <div class="ease"></div>
+      </div>
+    </form>
+</div>
+
+  <div class="search-results">
+    <p class="results-title">Search Results</p>
+
+    <% if @users %>
+      <% @users.each do |user| %>
+        <p class="results-list"><a href="/users/<%= user.id %>"> <%= user.username %></a></p>
+      <% end %>
+    <% else %>
+      <p>Enter a search term</p>
+    <% end %>
+  </div>
+</div>
 
 
 
-<h1>Search:</h1>
+
+
+
+<!-- <h1>Search:</h1>
 <form method='get' action='/users' class="login_form">
 
   <div>
@@ -24,4 +61,4 @@
     <input class="btn btn-primary" type="submit" value="Search!">
    </div>
 
-</form>
+</form> -->

@@ -116,6 +116,7 @@ end
 
 
 get '/users' do
+  @user = current_user
   if params[:instrument].present? && params[:style].present?
     @users = User.where(instrument: params[:instrument].downcase, style: params[:style].downcase)
   elsif params[:instrument].present?

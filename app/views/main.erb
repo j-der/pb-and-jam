@@ -42,14 +42,14 @@
   <h3>Message board</h3>
   <% @posts.each do |post| %>
     <div class="post">
-      <p><%= post.content %></p>
-      <p> By: <a href="/users/<%= post.user_id %>"><%= post.username %></a> on <%= post.created_at %></p>
+      <p class="content"><%= post.content %></p>
+      <p class="content"></p><p class="content-user"> By: <a href="/users/<%= post.user_id %>"><%= post.username %></a> on <%= post.created_at %></p>
     </div>
   <% end %>
 
-   <form method='get' action='/logout'>
+<!--    <form method='get' action='/logout'>
     <div>
       <input type="submit" value="Log out">
     </div>
 </div>
-
+ -->
