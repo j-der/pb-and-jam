@@ -1,54 +1,55 @@
-<div>
-  <header class="header">
-    <ul class="nav">
-      <li class="logo"><h1><a href="#">PB & JAM</a></h1></li>
-      <div class="right-nav">
-        <li><a href="/profile" data-icon="&#xe603;"><img class="nav-pic" src="../uploads/<%= @user.id %>"></a></li>
-        <li class="logout"><a href="/logout" data-icon="&#xe603;">logout</a></li>
+<div class="main-background">  
+  <div>
+    <header class="header">
+      <ul class="nav">
+        <li class="logo"><p><a href="#"><span class="nav-title">PB &</span><span class="jam"> JAM</span></a></p></li>
+        <div class="right-nav">
+          <li><a href="/profile" data-icon="&#xe603;"><img class="nav-pic" src="../uploads/<%= @user.id %>"></a></li>
+          <li class="logout"><a href="/logout" data-icon="&#xe603;">logout</a></li>
+        </div>
+      </ul>
+    </header>
+  </div>
 
-<!-- <p><img class="pic" src="../uploads/<%= @user.id %>"></p> -->
+  <p class="main-title">Start Your Jam Session!</p>
+  <form method='get' action='/users'>
 
+  <div class="search-bars">
+      <div class="instrument">
+       <input type="text" name="instrument" class="feedback-input-search" placeholder="Instrument">
       </div>
-    </ul>
-  </header>
+      <div class="style">
+       <input type="text" name="style" class="feedback-input-search" placeholder="Style">
+      </div>
+  </div>
+    <div class="search-button">
+     <input class="submit-search" type="submit" value="Search!" id="button-blue-search">
+  <div class="ease"></div>
+    </div>
+  </form>
+
+  <h3>Post a message</h3>
+
+  <form method='post' action='/posts'>
+    <div class="message-input">
+     <input type="text" name="content" class="feedback-input-search" placeholder="Your message">
+    </div>
+      <div class="post-button">
+     <input id="button-blue-post" type="submit" value="Post!">
+    </div>
+  </form>
+
+  <h3>Message board</h3>
+  <% @posts.each do |post| %>
+    <div class="post">
+      <p><%= post.content %></p>
+      <p> By: <a href="/users/<%= post.user_id %>"><%= post.username %></a> on <%= post.created_at %></p>
+    </div>
+  <% end %>
+
+   <form method='get' action='/logout'>
+    <div>
+      <input type="submit" value="Log out">
+    </div>
 </div>
-
-<h1>Search:</h1>
-<form method='get' action='/users' class="login_form">
-
-  <div>
-   <input type="text" name="instrument" placeholder="Instrument">
-  </div>
-  <div>
-   <input type="text" name="style" placeholder="Style">
-  </div>
-  <div>
-   <input class="btn btn-primary" type="submit" value="Search!">
-  </div>
-</form>
-
-<h3>Post a message</h3>
-
-<form method='post' action='/posts' class='posts'>
-  <div>
-   <input type="text" name="content" placeholder="Your message">
-  </div>
-    <div>
-   <input class="btn btn-primary" type="submit" value="Post!">
-  </div>
-</form>
-
-<h3>Message board</h3>
-<% @posts.each do |post| %>
-  <div class="post">
-    <p><%= post.content %></p>
-    <p> By: <a href="/users/<%= post.user_id %>"><%= post.username %></a> on <%= post.created_at %></p>
-  </div>
-<% end %>
-
- <form method='get' action='/logout'>
-  <div>
-    <input type="submit" value="Log out">
-  </div>
-
 
