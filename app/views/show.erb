@@ -1,11 +1,51 @@
-<h1>Home Page</h1>
+<div>
+    <header class="header">
+      <ul class="nav">
+        <li class="logo"><p><a href="#"><span class="nav-title">PB &amp;</span><span class="jam"> JAM</span></a></p></li>
+        <div class="right-nav">
+          <li><a href="/profile" data-icon="&#xe603;"><img class="nav-pic" src="../uploads/<%= @user.id %>"></a></li>
+          <li class="logout"><a href="/logout" data-icon="&#xe603;">logout</a></li>
+        </div>
+      </ul>
+    </header>
+  </div>
 <head>
-  <title>PB and JAM</title>
+  <title>PB &amp; JAM</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="/stylesheets/application.css">
   <link href='https://fonts.googleapis.com/css?family=Mrs+Saint+Delafield|Droid+Sans' rel='stylesheet' type='text/css'>
 </head>
+
+
+<body>
+  <div class="sidebar">
+  </div>
+
+  <div class="sidebar_info">
+    <div class="profile_pic"><img class="profile_pic" src="../uploads/<%= @user.id %>"></p></div>
+      <ul class="sidebar_text">
+        <li><span class="accent_color">NAME:</span> <%= @user.first_name %> <%= @user.last_name %></li><br/>
+        <li><span class="accent_color">INSTRUMENT:</span> <%= @user.instrument %></li><br/>
+        <li><span class="accent_color">STYLE:</span> <%= @user.style %></li><br/>
+        <li><a href="mailto:<%= @user.email %>">EMAIL ME</a></li><br/>
+        </ul>
+  </div>
+
+<h2>JAM WITH <%= @user.username %>!</h2>
+  <div class="about">
+  <p class="main">
+  About: <br/>
+  <%= @user.about %>
+  </p>
+  </div>
+</body>
+
+
+
+
+<!-- BELOW IS THE OLD CODE BEFORE JAS ADDED NEW STYLE
+
 <body>
   <p><img class="pic" src="/uploads/<%= @user.id %>"></p>
     <h1><%= @user.username %>!</h1>
@@ -34,3 +74,4 @@
     <input type="submit" value="Log out">
   </div>
 </body>
+ -->
