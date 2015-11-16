@@ -59,32 +59,6 @@ get '/profile' do
   erb :'profile'
 end
 
-# get '/edit' do
-
-#   @user = current_user
-#   erb :'edit'
-# end
-
-# post '/edit' do
-#   binding.pry
-#   params[:user].each do |field|
-#     if field.present?
-#        current_user.update(params[:user][field])
-#     end
-#   end
-
-
-#   # [:username].present?
-#   # current_user.update(params[:user][:username])
-#   # current_user.username.upcase!
-#   # else
-
-#   current_user.save
-#   redirect '/profile'
-# end
-
-
-
 get "/logout" do
   session.clear
   redirect "/"
@@ -126,11 +100,12 @@ get '/users' do
   else
     @users = User.all
   end
-  erb :'users'
+  erb :'/users'
 end
 
 get '/users/:id' do
-  @user = User.find params[:id]
+  @current_user = current_user
+  @user = User.find (params[:id])
   erb :'/show'
 end
 
