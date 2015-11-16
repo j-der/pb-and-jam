@@ -408,6 +408,7 @@ input:focus, textarea:focus {
     margin-top: 10px;
   }
 
+
   .nav-pic {
     width: 75px;
     height: 75px;
@@ -558,9 +559,9 @@ a:focus {
   font-family: 'Slabo 27px', serif;
   /*float: ;*/
   width: 40%;
-  border: #fbfbfb solid 4px;
+  border: #FF5D1F solid 4px;
   cursor:pointer;
-  background-color: rgba(20, 4, 40, 0.57);
+  background-color: rgb(255, 93, 31);
   color:white;
   font-size:24px;
   padding-top:22px;
@@ -622,7 +623,7 @@ a:focus {
   width: 40%;
   border: #FF5D1F solid 4px;
   cursor:pointer;
-  background-color: rgba(20, 4, 40, 0.57);
+  background-color: rgb(255, 93, 31);
   color:white;
   font-size:24px;
   padding-top:22px;
@@ -827,3 +828,10 @@ a:visited {
   border: 1px solid rgba(0,0,0,0);
 }
 
+.wall {
+  background-color: rgba(255, 93, 31, 0.12);
+  width: 50%;
+  margin: auto;
+  border-radius: 5px;
+
+}

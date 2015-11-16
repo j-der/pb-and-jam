@@ -23,14 +23,15 @@
       </div>
   </div>
     <div class="search-button">
-     <input class="submit-search" type="submit" value="Search!" id="button-blue-search">
-  <div class="ease"></div>
+     <input class="submit-search" type="submit" value="Search!" id="button-blue-search"><br>
+  <!-- <div class="ease"></div> -->
     </div>
   </form>
 
   <h3>Post a message</h3>
 
   <form method='post' action='/posts'>
+  
     <div class="message-input">
      <input type="text" name="content" class="feedback-input-search" placeholder="Your message">
     </div>
@@ -39,13 +40,17 @@
     </div>
   </form>
 
-  <h3>Message board</h3>
-  <% @posts.each do |post| %>
-    <div class="post">
-      <p class="content"><%= post.content %></p>
-      <p class="content"></p><p class="content-user"> By: <a href="/users/<%= post.user_id %>"><%= post.username %></a> on <%= post.created_at %></p>
-    </div>
-  <% end %>
+  <div class="wall">
+    <h3>Message board</h3>
+    <% @posts.each do |post| %>
+      <div class="post">
+        <p class="content"><%= post.content %></p>
+        <p class="content"></p><p class="content-user"> By: <a href="/users/<%= post.user_id %>"><%= post.username %></a> on <%= post.created_at %></p>
+      </div>
+
+    <% end %>
+  </div>
+
 
 <!--    <form method='get' action='/logout'>
     <div>
