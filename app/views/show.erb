@@ -1,22 +1,22 @@
-<div>
-    <header class="header">
-      <ul class="nav">
-        <li class="logo"><p><a href="#"><span class="nav-title">PB &amp;</span><span class="jam"> JAM</span></a></p></li>
-        <div class="right-nav">
-          <li><a href="/profile" data-icon="&#xe603;"><img class="nav-pic" src="../uploads/<%= @user.id %>"></a></li>
-          <li class="logout"><a href="/logout" data-icon="&#xe603;">logout</a></li>
-        </div>
-      </ul>
-    </header>
-  </div>
 <head>
   <title>PB &amp; JAM</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="/stylesheets/application.css">
   <link href='https://fonts.googleapis.com/css?family=Mrs+Saint+Delafield|Droid+Sans' rel='stylesheet' type='text/css'>
-</head>
+</head>  
 
+  <div>
+    <header class="header">
+      <ul class="nav">
+        <li class="logo"><p><a href="/main"><span class="nav-title">PB &amp;</span><span class="jam"> JAM</span></a></p></li>
+        <div class="right-nav">
+          <li><a href="/profile" data-icon="&#xe603;"><img class="nav-pic" src="../uploads/<%= @current_user.id %>"></a></li>
+          <li class="logout"><a href="/logout" data-icon="&#xe603;">logout</a></li>
+        </div>
+      </ul>
+    </header>
+  </div>
 
 <body>
   <div class="sidebar">
@@ -41,37 +41,3 @@
   </div>
 </body>
 
-
-
-
-<!-- BELOW IS THE OLD CODE BEFORE JAS ADDED NEW STYLE
-
-<body>
-  <p><img class="pic" src="/uploads/<%= @user.id %>"></p>
-    <h1><%= @user.username %>!</h1>
-
-  <p>
-    <%= @user.first_name %> <%= @user.last_name %>
-  </p>
-  <p>
-  Instrument of choice: <br/>
-  <%= @user.instrument %>
-  </p>
-  <p>
-  Musical style: <br/>
-  <%= @user.style %>
-  </p>
-    <p>
-   <br/>
-<a href="mailto:<%= @user.email %>?subject=Let's Jam!">Email Me</a>
-  </p>
-  <p>
-  About: <br/>
-  <%= @user.about %>
-  </p>
-  <form method='get' action='/logout'>
-  <div>
-    <input type="submit" value="Log out">
-  </div>
-</body>
- -->
